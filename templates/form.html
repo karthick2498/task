@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/form.css')}}">
+</head>
+<body>
+    {% if (data[0] == 1) %}
+        <div class="alert" style="opacity:0;">Registration successful !!!</div>
+    {% endif %}
+    {% if (data[0] ==-1) %}
+        <div class="alert" style="opacity:0;">Not Eligible!!!</div>
+    {% endif %}
+    {% if (data[0] ==2) %}
+        <div class="alert" style="opacity:0;">Already exist!</div>
+    {% endif %}
+    <main>
+        <div class="left-container">
+            <form action="/submit" method="post">
+               
+                <input type="text" name="name" id="name" placeholder="Name" required>
+                
+                <!-- <select name="currexp" id="currexp" required>
+                    <option value="">&lt; 1 year</option>
+                    <option value="">1- 5 years</option>
+                    <option value="">&gt; 5 year</option>
+                </select>
+                <select name="pastexp" id="pastexp" required>
+                    <option value="">&lt; 1 year</option>
+                    <option value="">1- 5 years</option>
+                    <option value="">&gt; 5 year</option>
+                </select> -->
+                <input type="number" name="currexp" id="currexp" placeholder="Current Exp." required>
+                <input type="number" name="pastexp" id="pastexp" placeholder="Past Exp." required>
+
+                <select name="currdes" id="currdes">
+                    <option value="Team leader">Team Leader</option>
+                    <option value="Senior Software Eng.">Senior Software Engineer</option>
+                </select>
+                <p>Functional skills:</p>
+            <div class="checklist-fun">
+                <label >Core Banking
+                    <input type="checkbox" name="skills" value="1" multiple>
+                </label>
+                <label >CBS
+                    <input type="checkbox" name="skills" value="1" multiple>
+                </label>Retail Banking
+                    <input type="checkbox" name="skills" value="1" multiple>
+                </label>Financial Services
+                <input type="checkbox" name="skills" value="1" multiple>
+                </label>
+            </div>
+            <p> Technical skills:</p>
+            <div class="checklist-tech">
+                <label>Java<input type="checkbox" name="tech"value="1" multiple></label>
+                <label>Spring Boot<input type="checkbox" name="tech" value="1" multiple></label>
+                <label>Oracle<input type="checkbox" name="tech" value="1" multiple></label>
+                <label>Python<input type="checkbox" name="tech" value="1" multiple></label>
+                <label>Pl/SQL<input type="checkbox" name="tech" value="1" multiple></label>
+            </div>
+                    <button>Register</button>
+            </form>
+
+        </div>
+        <div class="right-container">
+        <ul>Role Specific
+            <li>Team lead</li>
+            <li>Senior Engineer</li>
+            <li>Ability to lead teams on technical delivery</li>
+            <li>Have the capability to understand requirements and build technical specifications</li>
+        </ul>
+        </div>
+    </main>
+</body>
+</html>
